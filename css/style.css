@@ -91,6 +91,7 @@ h1, h2, h3, .serif-font {
     overflow: hidden;
 }
 
+
 /* accent background glow */
 .hero-banner::before {
     content: '';
