@@ -36,6 +36,12 @@ h1, h2, h3, .serif-font {
     border-top-width: 3px !important;
 }
 
+.navbar-dark .navbar-nav .nav-link.active {
+    color: var(--gold) !important;       
+    font-weight: 600;                     
+    border-bottom: 2px solid var(--gold); 
+}
+
 /* Layout Utilities */
 .tracking-wide {
     letter-spacing: 0.5px;
