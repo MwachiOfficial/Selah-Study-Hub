@@ -14,7 +14,7 @@ body {
     color: var(--dark-navy);
     display: flex;
     flex-direction: column;
-    min: vh -100px;
+    min-height: 100vh;
 }
 
 /* Typography Rules for Scriptural Elements */
