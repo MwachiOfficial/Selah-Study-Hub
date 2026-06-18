@@ -1,13 +1,85 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+:root {
+    --bg-navy: #1a252f;
+    --dark-navy: #111a24;
+    --gold: #d4af37;
+    --gold-hover: #bda030;
+    --alabaster: #f8f9fa;
+    --text-muted: #8a96a3;
 }
 
 body {
-  font-family: sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #f4f4f4;
-  padding: 20px;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--alabaster);
+    color: var(--dark-navy);
+    display: flex;
+    flex-direction: column;
+    min: vh -100px;
+}
+
+/* Typography Rules for Scriptural Elements */
+h1, h2, h3, .serif-font {
+    font-family: 'Lora', serif;
+}
+
+/* Custom Navigation Color Tokens */
+.bg-navy {
+    background-color: var(--bg-navy) !important;
+}
+
+.text-gold {
+    color: var(--gold) !important;
+}
+
+.border-gold {
+    border-top-color: var(--gold) !important;
+    border-top-width: 3px !important;
+}
+
+/* Layout Utilities */
+.tracking-wide {
+    letter-spacing: 0.5px;
+}
+
+.max-w-600 {
+    max-width: 600px;
+}
+
+.text-light-muted {
+    color: #b0bac5;
+}
+
+.opacity-15 {
+    opacity: 0.15;
+}
+
+/* Footer Link Transitions */
+.footer-links a {
+    color: #b0bac5;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+}
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #b0bac5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.social-icon:hover {
+    background-color: var(--gold);
+    color: var(--bg-navy);
+    transform: translateY(-2px);
 }
