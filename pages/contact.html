@@ -38,52 +38,55 @@
             </div>
         </nav>
     </header>
-    <main>
-        <section class="hero-banner text-light py-5 mb-5">
-            <div class="container py-4">
-                <div class="row align-items-center g-5">
-                    <div class="col-lg-7 text-center text-lg-start">
-                        <span class="badge badge-gold-outline mb-3 px-3 py-2">Digital Scripture Environment</span>
-                        <h1 class="display-3 fw-bold text-white mb-3">Your Gateway to Deep Scripture Study</h1>
-                        <p class="lead text-light-muted mb-4 fs-5">
-                            Welcome to SelahStudy—a platform engineered to help you engage with historic biblical text. Track your daily reading paths, explore multimedia book overviews, and interact with structured translation breakdowns seamlessly.
-                        </p>
-                        <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
-                            <a href="plans.html" class="btn btn-warning btn-lg px-4 fw-semibold text-dark-navy" style="background-color: var(--gold); border-color: var(--gold);">
-                                <i class="fa-solid fa-calendar-days me-2"></i>Start Reading Plan
-                            </a>
-                            <a href="old-testament.html" class="btn btn-outline-light btn-lg px-4">
-                                Browse Books
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="verse-card p-4 shadow-sm">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <span class="badge bg-light text-dark fw-semibold small px-2.5 py-1.5">Verse of the Day</span>
-                                <button class="btn btn-link text-gold p-0" id="shareVerseBtn" aria-label="Copy verse reference">
-                                    <i class="fa-regular fa-copy"></i>
+    <main class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h1 class="display-4 fw-bold text-dark-navy">Contact & Prayer Requests</h1>
+                <p class="lead text-muted max-w-600 mx-auto">Have a question about our study resources or want our community to join you in prayer? Reach out below.</p>
+            </div>
+
+            <div class="row g-5 justify-content-center">
+                <div class="col-lg-8">
+                    <form id="contactForm" class="bg-white p-4 p-md-5 rounded shadow-sm" novalidate>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="userName" class="form-label fw-semibold">Your Name</label>
+                                <input type="text" class="form-control" id="userName" placeholder="Your name" required>
+                                <div class="invalid-feedback">Please enter your name.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="userEmail" class="form-label fw-semibold">Email Address</label>
+                                <input type="email" class="form-control" id="userEmail" placeholder="email@example.com" required>
+                                <div class="invalid-feedback">Please provide a valid email address.</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="messageType" class="form-label fw-semibold">Purpose of Message</label>
+                                <select class="form-select" id="messageType" required>
+                                    <option value="" selected disabled>Choose an option...</option>
+                                    <option value="General Inquiry">General Inquiry / Feedback</option>
+                                    <option value="Prayer Request">Submit a Community Prayer Request</option>
+                                    <option value="Technical Support">Technical Support with Study Tools</option>
+                                </select>
+                                <div class="invalid-feedback">Please select the purpose of your message.</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="userMessage" class="form-label fw-semibold">Your Message or Prayer Needs</label>
+                                <textarea class="form-control" id="userMessage" rows="5" placeholder="Write your thoughts here" required></textarea>
+                                <div class="invalid-feedback">Please type a message before submitting.</div>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <button type="submit" class="btn btn-warning w-100 fw-bold text-dark-navy py-2.5" style="background-color: var(--gold); border-color: var(--gold);">
+                                    <i class="fa-solid fa-paper-plane me-2"></i>Send Message
                                 </button>
                             </div>
-                            <figure class="mb-0">
-                                <blockquote class="blockquote">
-                                    <p class="font-serif-italic text-dark-navy fs-5 leading-relaxed">
-                                        "Your word is a lamp to my feet and a light to my path."
-                                    </p>
-                                </blockquote>
-                                <figcaption class="blockquote-footer text-muted mb-0 mt-2 fw-semibold">
-                                    Psalm 119:105 <cite title="Source Title" class="text-uppercase font-sans-serif small ms-1">(ESV)</cite>
-                                </figcaption>
-                            </figure>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
-        </section>
-
-        <section class="container py-4">
-            </section>
+        </div>
     </main>
+
+   
     
 
 <footer class="bg-navy text-light pt-5 pb-3 mt-auto border-top border-gold">
