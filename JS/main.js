@@ -73,3 +73,38 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Feature 3: Interactive Newsletter Subscription & Success Modal Deployment
+
+const newsletterForm = document.getElementById("newsletterForm");
+
+if (newsletterForm) {
+
+    newsletterForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        if (!newsletterForm.checkValidity()) {
+            newsletterForm.classList.add("was-validated");
+            return;
+        }
+
+        const email = document.getElementById("newsletterEmail").value.trim();
+
+        const name = email.split("@")[0];
+
+        document.getElementById("modalTargetName").textContent = name;
+        document.getElementById("modalTargetType").textContent =
+            "Weekly Scripture Insights Newsletter";
+
+        const modal = new bootstrap.Modal(
+            document.getElementById("submissionSuccessModal")
+        );
+
+        modal.show();
+
+        newsletterForm.reset();
+        newsletterForm.classList.remove("was-validated");
+    });
+
+}
