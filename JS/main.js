@@ -108,3 +108,46 @@ if (newsletterForm) {
     });
 
 }
+
+
+    // Feature 4: Persistent Reading Tracker Matrix Engine via LocalStorage
+
+    const checkboxes = document.querySelectorAll('.reading-checkbox');
+    const progressBar = document.getElementById('planProgressBar');
+    const progressText = document.getElementById('progressPercentText');
+
+    // Function to calculate and render the graphic progress metric values
+    const updatePlanMetrics = () => {
+        if (checkboxes.length === 0) return;
+
+        const totalCheckboxes = checkboxes.length;
+        const checkedCount = document.querySelectorAll('.reading-checkbox:checked').length;
+        const currentPercentage = Math.round((checkedCount / totalCheckboxes) * 100);
+
+        // Map computed percentages directly to Bootstrap interface layout nodes
+        if (progressBar && progressText) {
+            progressBar.style.width = `${currentPercentage}%`;
+            progressBar.setAttribute('aria-valuenow', currentPercentage);
+            progressText.textContent = `${currentPercentage}% Complete`;
+        }
+    };
+
+    // Cycle through nodes to read states and assign local interaction listeners
+    if (checkboxes.length > 0) {
+        checkboxes.forEach((box) => {
+            // Read status mapping value directly from the browser LocalStorage
+            const boxSavedState = localStorage.getItem(`selah_plan_${box.value}`);
+            if (boxSavedState === 'true') {
+                box.checked = true;
+            }
+
+            // Bind change updates to refresh states and update localStorage variables
+            box.addEventListener('change', () => {
+                localStorage.setItem(`selah_plan_${box.value}`, box.checked);
+                updatePlanMetrics();
+            });
+        });
+
+        // Initialize state configuration views cleanly upon standard page boot window loads
+        updatePlanMetrics();
+    }
