@@ -38,3 +38,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
+    // Feature 2: Interactive Contact Form Validation & Success Modal Deployment
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', (event) => {
+            // Stop default page reloads on submission
+            event.preventDefault();
+            event.stopPropagation();
+
+            // Run structural validation check
+            if (!contactForm.checkValidity()) {
+                // If invalid, apply standard Bootstrap visual warning indicators
+                contactForm.classList.add('was-validated');
+            } else {
+                // If inputs are fully complete, extract data cleanly
+                const nameValue = document.getElementById('userName').value.trim();
+                const typeValue = document.getElementById('messageType').value;
+
+                // Inject extracted data tokens into our confirmation modal placeholder spans
+                document.getElementById('modalTargetName').textContent = nameValue;
+                document.getElementById('modalTargetType').textContent = typeValue;
+
+                // Programmatically initialize and display the Bootstrap Modal component
+                const successModalElement = document.getElementById('submissionSuccessModal');
+                const modalInstance = new bootstrap.Modal(successModalElement);
+                modalInstance.show();
+
+                // Cleanly reset the form fields and verification validation rings for subsequent uses
+                contactForm.reset();
+                contactForm.classList.remove('was-validated');
+            }
+        });
+    }
