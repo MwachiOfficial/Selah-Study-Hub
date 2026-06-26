@@ -86,7 +86,26 @@
         </div>
     </main>
 
-   
+   <div class="modal fade" id="submissionSuccessModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-navy text-white py-3">
+                    <h5 class="modal-title fw-bold text-gold" id="modalTitle"><i class="fa-solid fa-circle-check me-2"></i>Message Received</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 text-center">
+                    <div class="text-success display-4 mb-3"><i class="fa-solid fa-envelope-circle-check"></i></div>
+                    <h4 class="fw-bold text-dark-navy">Thank you, <span id="modalTargetName" class="text-gold"></span>!</h4>
+                    <p class="text-muted mb-0 mt-2">
+                        Your submission regarding <strong id="modalTargetType"></strong> has been securely transmitted. Our team and community coordinates will review your entry shortly.
+                    </p>
+                </div>
+                <div class="modal-footer bg-light border-0">
+                    <button type="button" class="btn btn-secondary w-100 fw-semibold" data-bs-dismiss="modal">Return to Study Hub</button>
+                </div>
+            </div>
+        </div>
+    </div>
     
 
 <footer class="bg-navy text-light pt-5 pb-3 mt-auto border-top border-gold">
