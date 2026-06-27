@@ -110,44 +110,59 @@ if (newsletterForm) {
 }
 
 
-    // Feature 4: Persistent Reading Tracker Matrix Engine via LocalStorage
+   // ==========================================================================
+    // Feature 4: Split Dual-Plan Reading Tracker via LocalStorage (Fixed)
+    // ==========================================================================
+    
+    /**
+     * Calculates progress percentage inside an isolated parent list element
+     * and maps it straight to its matching unique progress bar nodes.
+     */
+    const calculatePlanProgress = (containerId, progressBarId, progressTextId) => {
+        const container = document.getElementById(containerId);
+        if (!container) return; // Exit gracefully if the container isn't on the current page
 
-    const checkboxes = document.querySelectorAll('.reading-checkbox');
-    const progressBar = document.getElementById('planProgressBar');
-    const progressText = document.getElementById('progressPercentText');
+        const containerBoxes = container.querySelectorAll('.reading-checkbox');
+        const progressBar = document.getElementById(progressBarId);
+        const progressText = document.getElementById(progressTextId);
 
-    // Function to calculate and render the graphic progress metric values
-    const updatePlanMetrics = () => {
-        if (checkboxes.length === 0) return;
+        if (containerBoxes.length === 0) return;
 
-        const totalCheckboxes = checkboxes.length;
-        const checkedCount = document.querySelectorAll('.reading-checkbox:checked').length;
-        const currentPercentage = Math.round((checkedCount / totalCheckboxes) * 100);
+        // Scope the checked query specifically inside this single plan container element
+        const total = containerBoxes.length;
+        const checkedCount = container.querySelectorAll('.reading-checkbox:checked').length;
+        const scorePercentage = Math.round((checkedCount / total) * 100);
 
-        // Map computed percentages directly to Bootstrap interface layout nodes
+        // Render metrics to the unique target nodes
         if (progressBar && progressText) {
-            progressBar.style.width = `${currentPercentage}%`;
-            progressBar.setAttribute('aria-valuenow', currentPercentage);
-            progressText.textContent = `${currentPercentage}% Complete`;
+            progressBar.style.width = `${scorePercentage}%`;
+            progressBar.setAttribute('aria-valuenow', scorePercentage);
+            progressText.textContent = `${scorePercentage}% Complete`;
         }
     };
 
-    // Cycle through nodes to read states and assign local interaction listeners
-    if (checkboxes.length > 0) {
-        checkboxes.forEach((box) => {
-            // Read status mapping value directly from the browser LocalStorage
+    // Global listener setup to catch checkbox modifications on execution boot
+    const readingCheckboxes = document.querySelectorAll('.reading-checkbox');
+    
+    if (readingCheckboxes.length > 0) {
+        readingCheckboxes.forEach((box) => {
+            // Restore persistent checkbox state on window execution loads
             const boxSavedState = localStorage.getItem(`selah_plan_${box.value}`);
             if (boxSavedState === 'true') {
                 box.checked = true;
             }
 
-            // Bind change updates to refresh states and update localStorage variables
+            // Watch element toggle state mutations
             box.addEventListener('change', () => {
                 localStorage.setItem(`selah_plan_${box.value}`, box.checked);
-                updatePlanMetrics();
+                
+                // Fire independent recalculations across both containers upon click interactions
+                calculatePlanProgress('readingPlanGroupOT', 'otProgressBar', 'otProgressPercentText');
+                calculatePlanProgress('readingPlanGroupNT', 'ntProgressBar', 'ntProgressPercentText');
             });
         });
 
-        // Initialize state configuration views cleanly upon standard page boot window loads
-        updatePlanMetrics();
+        // Initialize state configurations when page first opens
+        calculatePlanProgress('readingPlanGroupOT', 'otProgressBar', 'otProgressPercentText');
+        calculatePlanProgress('readingPlanGroupNT', 'ntProgressBar', 'ntProgressPercentText');
     }

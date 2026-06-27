@@ -45,70 +45,190 @@
                 <p class="lead text-muted max-w-600 mx-auto">Track your daily study objectives. Mark off completed readings to dynamically track your persistent engine progress metrics below.</p>
             </div>
 
-            <div class="row justify-content-center mb-5">
-                <div class="col-md-8">
-                    <div class="card border-0 shadow-sm p-4 bg-white">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span class="fw-bold text-dark-navy small text-uppercase tracking-wider">Overall Plan Completion</span>
-                            <span id="progressPercentText" class="fw-bold text-gold">0% Complete</span>
-                        </div>
-                        <div class="progress" style="height: 12px;">
-                            <div id="planProgressBar" class="progress-bar progress-bar-striped progress-bar-animated bg-navy" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="card border-0 shadow-sm overflow-hidden">
+            <div class="row justify-content-center g-4">
+                
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm overflow-hidden h-100">
                         <div class="card-header bg-navy text-white fw-bold py-3">
-                            <i class="fa-solid fa-calendar-check text-gold me-2"></i>Foundational 7-Day Journey Plan
+                            <i class="fa-solid fa-scroll text-gold me-2"></i>Foundational 7-Day OT Journey
                         </div>
-                        <div class="list-group list-group-flush" id="readingPlanGroup">
-                            <label class="list-group-item d-flex align-items-center justify-content-between py-3 px-4 style-pointer">
+                        
+                        <div class="card-body bg-light border-bottom p-3">
+                            <div class="d-flex justify-content-between align-items-center mb-1.5">
+                                <span class="small fw-bold text-uppercase text-muted tracking-wider">OT Progress</span>
+                                <span id="otProgressPercentText" class="fw-bold text-navy small">0% Complete</span>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div id="otProgressBar" class="progress-bar bg-warning" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <div class="list-group list-group-flush" id="readingPlanGroupOT">
+                            <label class="list-group-item d-flex align-items-center justify-content-between py-3 px-3 style-pointer">
                                 <div class="d-flex align-items-center">
-                                    <input class="form-check-input me-3 reading-checkbox" type="checkbox" value="day1" style="transform: scale(1.25);">
+                                    <input class="form-check-input me-2 reading-checkbox" type="checkbox" value="ot_day1" style="transform: scale(1.15);">
                                     <div>
-                                        <strong class="text-dark-navy">Day 1: The Account of Creation</strong>
-                                        <p class="text-muted small mb-0 mt-0.5">Read: Genesis Chapters 1 & 2</p>
+                                        <strong class="text-dark-navy small d-block">Day 1: The Creation Account</strong>
+                                        <span class="text-muted extra-small">Genesis Chapters 1 & 2</span>
                                     </div>
                                 </div>
-                                <span class="badge bg-light text-muted border px-2.5 py-1.5 small">15 mins</span>
+                                <span class="badge bg-light text-muted border small">15m</span>
                             </label>
-                            <label class="list-group-item d-flex align-items-center justify-content-between py-3 px-4 style-pointer">
+                            <label class="list-group-item d-flex align-items-center justify-content-between py-3 px-3 style-pointer">
                                 <div class="d-flex align-items-center">
-                                    <input class="form-check-input me-3 reading-checkbox" type="checkbox" value="day2" style="transform: scale(1.25);">
+                                    <input class="form-check-input me-2 reading-checkbox" type="checkbox" value="ot_day2" style="transform: scale(1.15);">
                                     <div>
-                                        <strong class="text-dark-navy">Day 2: The Fall and Promise</strong>
-                                        <p class="text-muted small mb-0 mt-0.5">Read: Genesis Chapters 3 & 4</p>
+                                        <strong class="text-dark-navy small d-block">Day 2: The Fall and Promise</strong>
+                                        <span class="text-muted extra-small">Genesis Chapters 3 & 4</span>
                                     </div>
                                 </div>
-                                <span class="badge bg-light text-muted border px-2.5 py-1.5 small">12 mins</span>
+                                <span class="badge bg-light text-muted border small">12m</span>
                             </label>
-                            <label class="list-group-item d-flex align-items-center justify-content-between py-3 px-4 style-pointer">
+                            <label class="list-group-item d-flex align-items-center justify-content-between py-3 px-3 style-pointer">
                                 <div class="d-flex align-items-center">
-                                    <input class="form-check-input me-3 reading-checkbox" type="checkbox" value="day3" style="transform: scale(1.25);">
+                                    <input class="form-check-input me-2 reading-checkbox" type="checkbox" value="ot_day3" style="transform: scale(1.15);">
                                     <div>
-                                        <strong class="text-dark-navy">Day 3: The Call of Abraham</strong>
-                                        <p class="text-muted small mb-0 mt-0.5">Read: Genesis Chapters 12 & 15</p>
+                                        <strong class="text-dark-navy small d-block">Day 3: The Call of Abraham</strong>
+                                        <span class="text-muted extra-small">Genesis Chapters 12 & 15</span>
                                     </div>
                                 </div>
-                                <span class="badge bg-light text-muted border px-2.5 py-1.5 small">18 mins</span>
+                                <span class="badge bg-light text-muted border small">18m</span>
                             </label>
-                            <label class="list-group-item d-flex align-items-center justify-content-between py-3 px-4 style-pointer">
+                            <label class="list-group-item d-flex align-items-center justify-content-between py-3 px-3 style-pointer">
                                 <div class="d-flex align-items-center">
-                                    <input class="form-check-input me-3 reading-checkbox" type="checkbox" value="day4" style="transform: scale(1.25);">
+                                    <input class="form-check-input me-2 reading-checkbox" type="checkbox" value="ot_day4" style="transform: scale(1.15);">
                                     <div>
-                                        <strong class="text-dark-navy">Day 4: The Passover Deliverance</strong>
-                                        <p class="text-muted small mb-0 mt-0.5">Read: Exodus Chapter 12</p>
+                                        <strong class="text-dark-navy small d-block">Day 4: Passover Deliverance</strong>
+                                        <span class="text-muted extra-small">Exodus Chapter 12</span>
                                     </div>
                                 </div>
-                                <span class="badge bg-light text-muted border px-2.5 py-1.5 small">20 mins</span>
+                                <span class="badge bg-light text-muted border small">20m</span>
+                            </label>
+                            <label class="list-group-item d-flex align-items-center justify-content-between py-3 px-3 style-pointer">
+                                <div class="d-flex align-items-center">
+                                    <input class="form-check-input me-2 reading-checkbox" type="checkbox" value="ot_day5" style="transform: scale(1.15);">
+                                    <div>
+                                        <strong class="text-dark-navy small d-block">Day 5: Ten Commandments</strong>
+                                        <span class="text-muted extra-small">Exodus Chapters 19 & 20</span>
+                                    </div>
+                                </div>
+                                <span class="badge bg-light text-muted border small">15m</span>
+                            </label>
+                            <label class="list-group-item d-flex align-items-center justify-content-between py-3 px-3 style-pointer">
+                                <div class="d-flex align-items-center">
+                                    <input class="form-check-input me-2 reading-checkbox" type="checkbox" value="ot_day6" style="transform: scale(1.15);">
+                                    <div>
+                                        <strong class="text-dark-navy small d-block">Day 6: Shepherd King Songs</strong>
+                                        <span class="text-muted extra-small">Psalms Chapters 23 & 51</span>
+                                    </div>
+                                </div>
+                                <span class="badge bg-light text-muted border small">10m</span>
+                            </label>
+                            <label class="list-group-item d-flex align-items-center justify-content-between py-3 px-3 style-pointer">
+                                <div class="d-flex align-items-center">
+                                    <input class="form-check-input me-2 reading-checkbox" type="checkbox" value="ot_day7" style="transform: scale(1.15);">
+                                    <div>
+                                        <strong class="text-dark-navy small d-block">Day 7: Suffering Servant Prophecy</strong>
+                                        <span class="text-muted extra-small">Isaiah Chapter 53</span>
+                                    </div>
+                                </div>
+                                <span class="badge bg-light text-muted border small">12m</span>
                             </label>
                         </div>
                     </div>
                 </div>
+
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm overflow-hidden h-100">
+                        <div class="card-header bg-navy text-white fw-bold py-3">
+                            <i class="fa-solid fa-cross text-gold me-2"></i>7-Day New Testament Overview
+                        </div>
+                        
+                        <div class="card-body bg-light border-bottom p-3">
+                            <div class="d-flex justify-content-between align-items-center mb-1.5">
+                                <span class="small fw-bold text-uppercase text-muted tracking-wider">NT Progress</span>
+                                <span id="ntProgressPercentText" class="fw-bold text-navy small">0% Complete</span>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div id="ntProgressBar" class="progress-bar bg-warning" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <div class="list-group list-group-flush" id="readingPlanGroupNT">
+                            <label class="list-group-item d-flex align-items-center justify-content-between py-3 px-3 style-pointer">
+                                <div class="d-flex align-items-center">
+                                    <input class="form-check-input me-2 reading-checkbox" type="checkbox" value="nt_day1" style="transform: scale(1.15);">
+                                    <div>
+                                        <strong class="text-dark-navy small d-block">Day 1: Birth of the Messiah</strong>
+                                        <span class="text-muted extra-small">Matthew Chapters 1 & 2</span>
+                                    </div>
+                                </div>
+                                <span class="badge bg-light text-muted border small">10m</span>
+                            </label>
+                            <label class="list-group-item d-flex align-items-center justify-content-between py-3 px-3 style-pointer">
+                                <div class="d-flex align-items-center">
+                                    <input class="form-check-input me-2 reading-checkbox" type="checkbox" value="nt_day2" style="transform: scale(1.15);">
+                                    <div>
+                                        <strong class="text-dark-navy small d-block">Day 2: Sermon on the Mount</strong>
+                                        <span class="text-muted extra-small">Matthew Chapters 5 - 7</span>
+                                    </div>
+                                </div>
+                                <span class="badge bg-light text-muted border small">22m</span>
+                            </label>
+                            <label class="list-group-item d-flex align-items-center justify-content-between py-3 px-3 style-pointer">
+                                <div class="d-flex align-items-center">
+                                    <input class="form-check-input me-2 reading-checkbox" type="checkbox" value="nt_day3" style="transform: scale(1.15);">
+                                    <div>
+                                        <strong class="text-dark-navy small d-block">Day 3: Ministry & Miracles</strong>
+                                        <span class="text-muted extra-small">Mark Chapters 4 & 5</span>
+                                    </div>
+                                </div>
+                                <span class="badge bg-light text-muted border small">14m</span>
+                            </label>
+                            <label class="list-group-item d-flex align-items-center justify-content-between py-3 px-3 style-pointer">
+                                <div class="d-flex align-items-center">
+                                    <input class="form-check-input me-2 reading-checkbox" type="checkbox" value="nt_day4" style="transform: scale(1.15);">
+                                    <div>
+                                        <strong class="text-dark-navy small d-block">Day 4: Crucifixion & Resurrection</strong>
+                                        <span class="text-muted extra-small">John Chapters 19 & 20</span>
+                                    </div>
+                                </div>
+                                <span class="badge bg-light text-muted border small">25m</span>
+                            </label>
+                            <label class="list-group-item d-flex align-items-center justify-content-between py-3 px-3 style-pointer">
+                                <div class="d-flex align-items-center">
+                                    <input class="form-check-input me-2 reading-checkbox" type="checkbox" value="nt_day5" style="transform: scale(1.15);">
+                                    <div>
+                                        <strong class="text-dark-navy small d-block">Day 5: Holy Spirit Outpouring</strong>
+                                        <span class="text-muted extra-small">Acts Chapters 1 & 2</span>
+                                    </div>
+                                </div>
+                                <span class="badge bg-light text-muted border small">18m</span>
+                            </label>
+                            <label class="list-group-item d-flex align-items-center justify-content-between py-3 px-3 style-pointer">
+                                <div class="d-flex align-items-center">
+                                    <input class="form-check-input me-2 reading-checkbox" type="checkbox" value="nt_day6" style="transform: scale(1.15);">
+                                    <div>
+                                        <strong class="text-dark-navy small d-block">Day 6: Justification by Faith</strong>
+                                        <span class="text-muted extra-small">Romans Chapters 3 & 5</span>
+                                    </div>
+                                </div>
+                                <span class="badge bg-light text-muted border small">15m</span>
+                            </label>
+                            <label class="list-group-item d-flex align-items-center justify-content-between py-3 px-3 style-pointer">
+                                <div class="d-flex align-items-center">
+                                    <input class="form-check-input me-2 reading-checkbox" type="checkbox" value="nt_day7" style="transform: scale(1.15);">
+                                    <div>
+                                        <strong class="text-dark-navy small d-block">Day 7: A New Heaven & Earth</strong>
+                                        <span class="text-muted extra-small">Revelation Chapters 21 & 22</span>
+                                    </div>
+                                </div>
+                                <span class="badge bg-light text-muted border small">16m</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </main>
