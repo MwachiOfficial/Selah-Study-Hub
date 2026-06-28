@@ -2,41 +2,41 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('SelahStudy Engine initialized successfully. Visual containers loaded.');
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.getElementById('bookSearchInput');
+document.addEventListener("DOMContentLoaded", () => {
 
-    if (searchInput) {
-        searchInput.addEventListener('keyup', (event) => {
-            const searchString = event.target.value.toLowerCase().trim();
-            
-            // Find all column wrappers holding our library cards
-            const columns = document.querySelectorAll('.row.g-4 > div[class*="col-"]');
+    const searchInput = document.getElementById("bookSearchInput");
 
-            columns.forEach((col) => {
-                const bookItems = col.querySelectorAll('.book-item');
-                let cardHasMatches = false;
+    if (!searchInput) return;
 
-                bookItems.forEach((item) => {
-                    const bookTitleText = item.querySelector('span').textContent.toLowerCase();
+    searchInput.addEventListener("keyup", function () {
 
-                    if (bookTitleText.includes(searchString)) {
-                        item.style.setProperty('display', 'flex', 'important');
-                        cardHasMatches = true; // Mark that this card contains a matching book
-                    } else {
-                        item.style.setProperty('display', 'none', 'important');
-                    }
-                });
+        const search = this.value.toLowerCase();
 
-                // If the card has matching books (or if the search input is empty), show the card column.
-                // Otherwise, hide the entire column so empty cards don't clutter the screen.
-                if (cardHasMatches || searchString === '') {
-                    col.style.setProperty('display', 'block', 'important');
+        const columns = document.querySelectorAll(".row.g-4 > div[class*='col-']");
+
+        columns.forEach(col => {
+
+            let found = false;
+
+            col.querySelectorAll(".book-item").forEach(item => {
+
+                const title = item.querySelector("strong").textContent.toLowerCase();
+
+                if (title.includes(search)) {
+                    item.style.display = "";
+                    found = true;
                 } else {
-                    col.style.setProperty('display', 'none', 'important');
+                    item.style.display = "none";
                 }
+
             });
+
+            col.style.display = found || search === "" ? "" : "none";
+
         });
-    }
+
+    });
+
 });
 
 
